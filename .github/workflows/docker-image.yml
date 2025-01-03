@@ -24,7 +24,7 @@ jobs:
         docker build -f ./worker/Dockerfile -t bevooh94/worker ./worker
     - name: Upload Docker images to Docker hub
       run: |
-        echo ${{DOCKER_PASSWORD}} | docker login -u ${{DOCKER_ID}} --password-stdin
+        echo ${{secrets.DOCKER_PASSWORD}} | docker login -u ${{secrets.DOCKER_ID}} --password-stdin
         docker push bevooh94/react-prod
         docker push bevooh94/server-api
         docker push bevooh94/worker
